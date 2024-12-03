@@ -1,5 +1,6 @@
 <?php
 require 'control.php';
+control(1);
 $username = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
