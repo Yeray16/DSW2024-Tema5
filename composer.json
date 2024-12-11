@@ -1,14 +1,14 @@
 {
-    "name": "daw2/dsw2024-tema5",
+    "name": "yeraynp/dsw2024-tema5",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Daw2\\Dsw2024Tema5\\": "src/"
+            "Yeraynp\\Dsw2024Tema5\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "Yeray Navarro",
+            "name": "Yeray16",
             "email": "yeraynp16@gmail.com"
         }
     ],
