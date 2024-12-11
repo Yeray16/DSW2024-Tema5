@@ -1,12 +1,15 @@
 <?php
+//Empezamos la sesión
 session_start();
 
+//Comprueba si existe la sesión de visitas, si existe la incrementa
 if (isset($_SESSION['visits'])){
   $_SESSION['visits']++;
-} else {
+} else { //Si no existe dicha sesión, la crea y le da un valor por defecto
   $_SESSION['visits'] = 1;
 }
 
+//Empezamos una sesión de horas que sea igual al la hora y fecha actual
 $_SESSION['hours'][] = time();
 ?>
 <!DOCTYPE html>
@@ -17,6 +20,7 @@ $_SESSION['hours'][] = time();
   <title>Document</title>
 </head>
 <body>
+<!--Mostramos la cantidad de visitas-->
 <p>Número de visitas: <?=$_SESSION['visits'];?></p>
 <ul>
 <?php

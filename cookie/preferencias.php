@@ -6,22 +6,28 @@ $animals = [
 ];
 
 $listOfAnimals = [];
+//Si no se pasa sepcies en la URL, el código comprueba si existe una cookie llamada species
 if (empty($_GET['species'])) {
+  //Si no existe la cookie species, se agregan todos los animales de todas las categorías a listOfAnimals
   if (empty($_COOKIE['species'])) {
     foreach ($animals as $species) {
       $listOfAnimals = array_merge($listOfAnimals, $species);
     }
-  } else {
+  } else { //SI existe una cookie species el código solo carga los animales de dicha categrotía/especie
     $listOfAnimals = $animals[$_COOKIE['species']];
   }
-} else {
+} else { //En el caso que se pase un parámetro species por la URL
+  //Si el parámetro de species es all, se agregan todos los animales a listOfAnimals
   if ($_GET['species'] == 'all') {
     foreach ($animals as $species) {
       $listOfAnimals = array_merge($listOfAnimals, $species);
     }
+    //Se elimina lo cookie
     setcookie('species', '', time() - 1);
-  } else {
+  } else { //En el caso en que se pase una categoría específica
+    //Se añaden solo los animales de dicha categoría
     $listOfAnimals = $animals[$_GET['species']];
+    //Guarda dicha categoría en la cookie con una duración de 120 segundos (2 minutos)
     setcookie('species', $_GET['species'], time() + 120);
   }
 }
